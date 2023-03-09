@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ada.ticketsaleapi.domain.exception.EntidadeNaoEncontradaException;
 import com.ada.ticketsaleapi.domain.exception.VooEsgotadoException;
+import com.ada.ticketsaleapi.domain.infra.gateway.NotificationGateway;
 import com.ada.ticketsaleapi.domain.model.Bilhete;
 import com.ada.ticketsaleapi.domain.model.Passageiro;
 import com.ada.ticketsaleapi.domain.model.Voo;
@@ -21,6 +22,9 @@ public class BilheteService {
 
 	@Autowired
 	private VooService vooService;
+	
+	 @Autowired
+	 NotificationGateway notificationGateway;
 
 	@Autowired
 	private PassageiroService passageiroService;
@@ -45,7 +49,13 @@ public class BilheteService {
 			
 			Mono<Bilhete> bilheteEmitido = bilheteRepository.save(bilhete);
 			
-			return bilheteEmitido.flatMap(b -> vooService.save(voo).thenReturn(b));
+			return bilheteEmitido.flatMap(b -> { 
+		           
+            	return vooService.save(voo)
+            			.zipWith(notificationGateway.sendNotification(b.getId()))
+            			.map((tuple) -> Mono.just(tuple.getT2()))
+            			.thenReturn(b);
+            });
 
 		});
 
