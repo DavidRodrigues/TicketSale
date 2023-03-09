@@ -3,11 +3,11 @@
 
 Projeto de conclusão de módulo Programação Web III do curso Jornada do Conhecimento ministrado pela ADA.
 
-Api responsável por emitir notificação de compra de passagem aérea.  
-Também fazem parte deste projeto as apis abaixo:
+Neste projeto é composto por 3 api's conforme listado abaixo:
 
-- ada-ticketsale-api [https://github.com/thalesburque/ada-ticketsale-api]
-- TicketSalesSeviceDiscovery [https://github.com/johnymaia/TicketSalesSeviceDiscovery]
+- ada-ticketsale-api - Api responsável por emitir bilhete de compra de passagem aérea [https://github.com/DavidRodrigues/TicketSale/tree/main/ada-ticketsale-api]
+- ada-notification-api - Api responsável por emitir notificação de compra de passagem aérea [https://github.com/DavidRodrigues/TicketSale/tree/main/ada-notification-api]
+- TicketSalesSeviceDiscovery - Api responsável por permitir que a api `ada-ticketsale-api` possa descobrir a url da api `ada-notification-api` [https://github.com/johnymaia/TicketSalesSeviceDiscovery]
 
 
 ## Participantes do projeto
