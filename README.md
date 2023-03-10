@@ -7,7 +7,7 @@ Neste projeto é composto por 3 api's conforme listado abaixo:
 
 - ada-ticketsale-api - Api responsável por emitir bilhete de compra de passagem aérea [https://github.com/DavidRodrigues/TicketSale/tree/main/ada-ticketsale-api]
 - ada-notification-api - Api responsável por emitir notificação de compra de passagem aérea [https://github.com/DavidRodrigues/TicketSale/tree/main/ada-notification-api]
-- TicketSalesSeviceDiscovery - Api responsável por permitir que a api `ada-ticketsale-api` possa descobrir a url da api `ada-notification-api` [https://github.com/johnymaia/TicketSalesSeviceDiscovery]
+- ada-servicediscovery-api - Api responsável por permitir que a api `ada-ticketsale-api` possa descobrir a url da api `ada-notification-api` [https://github.com/DavidRodrigues/TicketSale/tree/main/ada-servicediscovery-api]
 
 
 ## Participantes do projeto
